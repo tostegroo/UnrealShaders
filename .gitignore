@@ -1,0 +1,86 @@
+#
+# This file tells Git about engine files that never really belong in source control.  They are usually build products, log 
+# files and intermediate files generated from a compiler or the engine runtime.
+#
+#
+# NOTE:
+#  Paths that start with / match paths relative to the root (where the .gitignore file is)
+#  Paths that end with / will match a folder and all files under it (but not a regular file with no extension)
+#  Use * for wildcards.  Wildcards stop at path separators
+#  Use ** for a wildcard that spans path separators
+#  Paths in this file should use forward slash characters, not back slashes
+#  Use \ to escape special characters like ! and #
+#  Use ! to negate a previous pattern.  But it doesn't work if the parent sub-folder was masked out already.
+# 
+
+# Ignore project files in the root
+*.sln
+*.VC.db
+*.VC.opendb
+*.suo
+*.opensdf
+*.sdf
+/*.xcodeproj
+/Makefile
+/CMakeLists.txt
+
+# Derived data cache is never checked in
+/Engine/DerivedDataCache/**
+
+# Engine intermediates
+/Engine/Intermediate/**
+/Engine/Plugins/**/Intermediate/**
+
+# Ignore binary files...
+/Engine/Binaries/**
+/Engine/Plugins/**/Binaries/**
+
+# ...but Mac Mono binaries will stay, for now.
+!/Engine/Binaries
+!/Engine/Binaries/ThirdParty
+!/Engine/Binaries/ThirdParty/Mono
+!/Engine/Binaries/ThirdParty/Mono/Mac
+!/Engine/Binaries/ThirdParty/Mono/Mac/bin
+!/Engine/Binaries/ThirdParty/Mono/Mac/bin/**
+
+# Intermediate folders created for various C# programs
+/Engine/Source/Programs/**/obj/**
+
+# Saved folders for programs should not be checked in
+/Engine/Programs/**/Saved/**
+/Engine/Programs/UnrealBuildTool/**
+
+# Ignore various other dependencies that are never checked in
+/Engine/Content/**
+/Engine/Documentation/**
+/Engine/Extras/**
+
+# Ignore any saved local files
+/Engine/Saved/**
+
+# Install stamp linux dependencies
+/Engine/Build/BatchFiles/Linux/dependencies.sha1sums.installed
+
+# log files for linux scripts (e.g. BuildThirdParty.sh)
+/Engine/Build/BatchFiles/Linux/*.log
+
+# Ignore third party binaries
+/Engine/Source/ThirdParty/**/*.exe
+/Engine/Source/ThirdParty/**/*.pdb
+/Engine/Source/ThirdParty/**/*.lib
+/Engine/Source/ThirdParty/**/*.a
+/Engine/Source/ThirdParty/**/*.obj
+/Engine/Source/ThirdParty/**/*.dll
+/Engine/Source/ThirdParty/**/*.dylib
+/Engine/Source/ThirdParty/**/*.bmp
+/Engine/Source/ThirdParty/**/*.so
+/Engine/Source/ThirdParty/**/*.bsc
+/Engine/Source/ThirdParty/**/*.idb
+/Engine/Source/ThirdParty/**/*.bc
+
+# Ignore sample and template projects
+/Samples/**
+/Templates/**
+
+# Ignore Unix backup files
+*~
